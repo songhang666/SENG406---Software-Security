@@ -141,12 +141,12 @@
               "threats": [
                 {
                   "id": "850df8af-996e-40ba-a465-39c9bfeb5cf8",
-                  "title": "Credential too weak or stolen",
+                  "title": "User identity spoofing. Credential too weak or stolen",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Medium",
                   "type": "Spoofing",
-                  "description": "Credentials of user can be stolen or guessed.",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Credentials of user can be stolen or guessed. Attacker may impersonate users to gain access to notes\t\n",
+                  "mitigation": "Enforce strong authentication, session management.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 23,
@@ -156,7 +156,7 @@
                   "id": "7a4ba7fa-74a1-4714-8c3f-51ef7ce9fb0d",
                   "title": "Repudiation of creating note",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Repudiation",
                   "description": "A end-user could create notes impersonating another user.",
                   "mitigation": "Provide remediation for this threat or a reason if status is N/A",
@@ -167,8 +167,8 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 3,
-                "repudiation": 3
+                "spoofing": 6,
+                "repudiation": 4
               }
             }
           },
@@ -276,7 +276,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -297,12 +298,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "9490699a-f8d3-4e19-b8a6-4145648221aa",
+                  "title": "Bypass permission checks",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Access or edit notes without authorization",
+                  "mitigation": "Enforce strict backend authorization, validate every action against role",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "userld\nemail\nusername"
@@ -384,6 +404,10 @@
               {
                 "x": 620,
                 "y": 280
+              },
+              {
+                "x": 640,
+                "y": 350
               },
               {
                 "x": 650,
@@ -737,6 +761,46 @@
             "vertices": []
           },
           {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Web Server /Database Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "labels": [
+              "Web Server /Database Boundary"
+            ],
+            "id": "e2897330-d30f-49c3-bec1-3cf727e18cfc",
+            "source": {
+              "x": 930,
+              "y": -330
+            },
+            "target": {
+              "x": 1030,
+              "y": 960
+            },
+            "vertices": [
+              {
+                "x": 970,
+                "y": -60
+              },
+              {
+                "x": 990,
+                "y": 360
+              },
+              {
+                "x": 990,
+                "y": 490
+              }
+            ]
+          },
+          {
             "position": {
               "x": 700,
               "y": -50
@@ -855,91 +919,26 @@
               "privilegeLevel": "",
               "threats": [
                 {
-                  "id": "7741468f-3f2b-475f-8874-19ade1e32f48",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Spoofing",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 1,
-                  "score": ""
-                },
-                {
-                  "id": "61735135-2a8c-428a-a5b0-ca71cc65d478",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Tampering",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 2,
-                  "score": ""
-                },
-                {
-                  "id": "8a4a6b74-3bbe-47a2-9c4f-da34f6885228",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Repudiation",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 3,
-                  "score": ""
-                },
-                {
                   "id": "41331464-40d4-4207-91a4-b64bc1d37d1d",
-                  "title": "New STRIDE threat",
+                  "title": "HTTPS downgrade attack",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Information disclosure",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Attempt to access site via HTTP\t",
+                  "mitigation": "Enforce HTTPS with HSTS headers",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 4,
                   "score": ""
-                },
-                {
-                  "id": "63cc40a8-e1aa-49d9-b0ec-03c4eca65409",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Denial of service",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 5,
-                  "score": ""
-                },
-                {
-                  "id": "d1eb4bd2-a185-4356-a7e1-b0329abf6d0d",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Elevation of privilege",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 6,
-                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
-                "tampering": 1,
-                "repudiation": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1,
-                "elevationOfPrivilege": 1
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
               }
             }
           },
@@ -957,13 +956,11 @@
                 "text": "Content datastore"
               },
               "topLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -1060,31 +1057,17 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": [
-                {
-                  "id": "aef23957-f087-4d8b-ba04-b44687786be3",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Information disclosure",
-                  "description": "Information disclosure\n",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 19,
-                  "score": ""
-                }
-              ],
+              "threats": [],
               "threatFrequency": {
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 0,
                 "denialOfService": 0
               }
             }
@@ -1103,13 +1086,11 @@
                 "text": "Comment datastore"
               },
               "topLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -1206,31 +1187,17 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": [
-                {
-                  "id": "5e9e8381-5ca4-492a-8e54-fde04fffa659",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Information disclosure",
-                  "description": "Information disclosure\n",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 20,
-                  "score": ""
-                }
-              ],
+              "threats": [],
               "threatFrequency": {
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 0,
                 "denialOfService": 0
               }
             }
@@ -1354,26 +1321,13 @@
               "privilegeLevel": "",
               "threats": [
                 {
-                  "id": "c4d8214e-4949-47ca-a7e4-215b67fbe13c",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Spoofing",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 7,
-                  "score": ""
-                },
-                {
                   "id": "83327ab6-b126-45a3-a52b-90c6043f9789",
-                  "title": "New STRIDE threat",
+                  "title": "Note or comment tampering",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Tampering",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Unauthorized editing via compromised session or link.",
+                  "mitigation": "Use secure tokens, validate permissions on every request.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 8,
@@ -1381,64 +1335,38 @@
                 },
                 {
                   "id": "b79c9196-ff0b-438f-9bc0-17e28cd65be8",
-                  "title": "New STRIDE threat",
+                  "title": "Denial of creating/editing notes or comments",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Repudiation",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Users deny their actions",
+                  "mitigation": "Maintain audit logs with timestamps, IP addresses, and user IDs.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 9,
                   "score": ""
                 },
                 {
-                  "id": "27573593-60fc-4687-964f-fd048017114c",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Information disclosure",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 10,
-                  "score": ""
-                },
-                {
                   "id": "dac3a80c-141e-4125-ae8b-a0ad13723859",
-                  "title": "New STRIDE threat",
+                  "title": "Flooding note creation/comments",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Critical",
                   "type": "Denial of service",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Attackers overload the server",
+                  "mitigation": "Rate limiting, CAPTCHA, IP throttling",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 11,
                   "score": ""
-                },
-                {
-                  "id": "7b40fd31-cffd-4586-ba4e-d1074be6d7c4",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Elevation of privilege",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 12,
-                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
-                "tampering": 1,
-                "repudiation": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1,
-                "elevationOfPrivilege": 1
+                "spoofing": 0,
+                "tampering": 2,
+                "repudiation": 2,
+                "informationDisclosure": 0,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 0
               }
             }
           },
@@ -1562,12 +1490,12 @@
               "threats": [
                 {
                   "id": "47474b30-478f-473f-9007-e73a5df2c07b",
-                  "title": "New STRIDE threat",
+                  "title": "Shared link misuse",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Low",
                   "type": "Spoofing",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Link-based access lacks identity verification.",
+                  "mitigation": "Add optional login requirement for link-based access.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 13,
@@ -1575,38 +1503,25 @@
                 },
                 {
                   "id": "9e171f9e-d93d-4e9d-85b6-426c401307a5",
-                  "title": "New STRIDE threat",
+                  "title": "Replay attacks with links",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Critical",
                   "type": "Tampering",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Editing via previously shared links.",
+                  "mitigation": "Implement link expiry, one-time use options.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 14,
                   "score": ""
                 },
                 {
-                  "id": "be410da6-0497-4cf3-9a19-db0d19ad58d8",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Repudiation",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 15,
-                  "score": ""
-                },
-                {
                   "id": "4cd20659-f423-4836-9e22-b3dc57541e01",
-                  "title": "New STRIDE threat",
+                  "title": "Shared links leaked",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Low",
                   "type": "Information disclosure",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Anyone with the link may access sensitive content",
+                  "mitigation": "Provide link access controls, expiration, and audit trail",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 16,
@@ -1614,38 +1529,38 @@
                 },
                 {
                   "id": "0181b12c-3bc0-43b7-bf44-eaf666eca5c3",
-                  "title": "New STRIDE threat",
+                  "title": "Public notes indexed by search engines",
                   "status": "Open",
                   "severity": "TBD",
-                  "type": "Denial of service",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "type": "Information disclosure",
+                  "description": "Public notes may unintentionally expose data.",
+                  "mitigation": "Use robots.txt, add warnings before making notes public.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 17,
                   "score": ""
                 },
                 {
-                  "id": "10512eb0-23d7-4010-87a5-45c6325ac0b7",
-                  "title": "New STRIDE threat",
+                  "id": "cccc6507-3950-40d4-97be-d1b5b0615aa3",
+                  "title": "Server overload via reverse proxy",
                   "status": "Open",
-                  "severity": "TBD",
-                  "type": "Elevation of privilege",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Attacks on proxy causing downtime\t",
+                  "mitigation": "DDoS protection, failover proxies\t",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 18,
+                  "number": 25,
                   "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
-                "tampering": 1,
-                "repudiation": 1,
-                "informationDisclosure": 1,
-                "denialOfService": 1,
-                "elevationOfPrivilege": 1
+                "spoofing": 3,
+                "tampering": 2,
+                "repudiation": 0,
+                "informationDisclosure": 4,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 0
               }
             }
           },
@@ -1663,13 +1578,11 @@
                 "text": "SharedNote datastore"
               },
               "topLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -1766,31 +1679,17 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": [
-                {
-                  "id": "32029651-dd66-4ae0-b2e9-5f1a05fbb53c",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Information disclosure",
-                  "description": "Information disclosure",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 21,
-                  "score": ""
-                }
-              ],
+              "threats": [],
               "threatFrequency": {
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 0,
                 "denialOfService": 0
               }
             }
@@ -1809,8 +1708,8 @@
                 "text": "database administrators"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1907,9 +1806,27 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "749bd2db-f6c9-4f6d-9dac-4ebcaaf96a8d",
+                  "title": "Comment deletion by unauthorized user\t",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "",
+                  "description": "Only note creator can delete, attacker may try to escalate",
+                  "mitigation": "Enforce role-based access control (RBAC) strictly",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "repudiation": 0
+              }
             },
             "children": [
               "d625b9f5-5cd7-4699-a56c-0b1ee3d464cb"
@@ -1929,8 +1846,8 @@
                 "text": "system configuration "
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2027,12 +1944,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "5c029be7-cff6-40d1-a454-a2028abbc950",
+                  "title": "Audit Logging",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Track all key user and system actions",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
             }
           }
         ],
@@ -2041,6 +1980,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Xiaoping",
-    "threatTop": 24
+    "threatTop": 29
   }
 }
