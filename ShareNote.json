@@ -229,11 +229,24 @@
                   "new": false,
                   "number": 27,
                   "score": ""
+                },
+                {
+                  "id": "2c8c7215-8d8d-48be-9f73-a696798a67ea",
+                  "title": "Sensitive data exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information may be transmitted without sufficient protection or accidentally logged. This could allow unauthorized users or attackers to read or misuse the data, especially if intercepted during transit or leaked through error messages.",
+                  "mitigation": "- Encrypt all communications via TLS\n- Avoid including sensitive information in error responses",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 115,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -442,11 +455,24 @@
                   "new": false,
                   "number": 81,
                   "score": ""
+                },
+                {
+                  "id": "7f27c57f-5dda-4b58-a621-2ae8a9c72525",
+                  "title": "Sensitive data exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information may be transmitted without sufficient protection or accidentally logged. This could allow unauthorized users or attackers to read or misuse the data, especially if intercepted during transit or leaked through error messages.",
+                  "mitigation": "- Encrypt all communications via TLS\n- Avoid including sensitive information in error responses",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 121,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -721,11 +747,24 @@
                   "new": false,
                   "number": 80,
                   "score": ""
+                },
+                {
+                  "id": "1ca0600b-ecd7-4b91-8d33-c7f0b4e29c2c",
+                  "title": "Sensitive data exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information may be transmitted without sufficient protection or accidentally logged. This could allow unauthorized users or attackers to read or misuse the data, especially if intercepted during transit or leaked through error messages.",
+                  "mitigation": "- Encrypt all communications via TLS\n- Avoid including sensitive information in error responses",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 120,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -792,11 +831,24 @@
                   "new": false,
                   "number": 77,
                   "score": ""
+                },
+                {
+                  "id": "d47a182a-6a01-4e1c-b6a5-697b8e23a763",
+                  "title": "Sensitive data exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information may be transmitted without sufficient protection or accidentally logged. This could allow unauthorized users or attackers to read or misuse the data, especially if intercepted during transit or leaked through error messages.",
+                  "mitigation": "- Encrypt all communications via TLS\n- Avoid including sensitive information in error responses",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 117,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -863,11 +915,24 @@
                   "new": false,
                   "number": 79,
                   "score": ""
+                },
+                {
+                  "id": "ce553aa7-db50-45f3-9154-b25061580932",
+                  "title": "Sensitive data exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information may be transmitted without sufficient protection or accidentally logged. This could allow unauthorized users or attackers to read or misuse the data, especially if intercepted during transit or leaked through error messages.",
+                  "mitigation": "- Encrypt all communications via TLS\n- Avoid including sensitive information in error responses",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 119,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -1108,11 +1173,24 @@
                   "new": false,
                   "number": 78,
                   "score": ""
+                },
+                {
+                  "id": "9861f795-1269-45fe-826d-05f85af4eb17",
+                  "title": "Sensitive data exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information may be transmitted without sufficient protection or accidentally logged. This could allow unauthorized users or attackers to read or misuse the data, especially if intercepted during transit or leaked through error messages.",
+                  "mitigation": "- Encrypt all communications via TLS\n- Avoid including sensitive information in error responses",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 118,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -1179,11 +1257,24 @@
                   "new": false,
                   "number": 76,
                   "score": ""
+                },
+                {
+                  "id": "e8ad68c9-944d-436d-9e1a-c34331c3d028",
+                  "title": "Sensitive data exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information may be transmitted without sufficient protection or accidentally logged. This could allow unauthorized users or attackers to read or misuse the data, especially if intercepted during transit or leaked through error messages.",
+                  "mitigation": "- Encrypt all communications via TLS\n- Avoid including sensitive information in error responses",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 116,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -1387,11 +1478,24 @@
                   "new": false,
                   "number": 74,
                   "score": ""
+                },
+                {
+                  "id": "e073ab81-c7a9-47c8-9986-11ab578d99e2",
+                  "title": "Sensitive data exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information may be transmitted without sufficient protection or accidentally logged. This could allow unauthorized users or attackers to read or misuse the data, especially if intercepted during transit or leaked through error messages.",
+                  "mitigation": "- Encrypt all communications via TLS\n- Avoid including sensitive information in error responses",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 113,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -1458,11 +1562,24 @@
                   "new": false,
                   "number": 72,
                   "score": ""
+                },
+                {
+                  "id": "542cefd3-12a2-4d18-8092-19e0d7a09612",
+                  "title": "Sensitive data exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information may be transmitted without sufficient protection or accidentally logged. This could allow unauthorized users or attackers to read or misuse the data, especially if intercepted during transit or leaked through error messages.",
+                  "mitigation": "- Encrypt all communications via TLS\n- Avoid including sensitive information in error responses",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 111,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -1524,11 +1641,24 @@
                   "new": false,
                   "number": 75,
                   "score": ""
+                },
+                {
+                  "id": "3d60b9f7-81dc-473e-aec3-5221aefc4c9c",
+                  "title": "Sensitive data exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information may be transmitted without sufficient protection or accidentally logged. This could allow unauthorized users or attackers to read or misuse the data, especially if intercepted during transit or leaked through error messages.",
+                  "mitigation": "- Encrypt all communications via TLS\n- Avoid including sensitive information in error responses",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 114,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -1595,11 +1725,24 @@
                   "new": false,
                   "number": 73,
                   "score": ""
+                },
+                {
+                  "id": "5700e3e7-8191-4ad2-bc10-5ed38d804697",
+                  "title": "Sensitive data exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information may be transmitted without sufficient protection or accidentally logged. This could allow unauthorized users or attackers to read or misuse the data, especially if intercepted during transit or leaked through error messages.",
+                  "mitigation": "- Encrypt all communications via TLS\n- Avoid including sensitive information in error responses",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 112,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -1686,12 +1829,6 @@
               "cell": "8f4422f4-718e-4a9e-bef8-1b8905e7b889",
               "port": "568ae002-dee4-4afd-adc4-c1860840021e"
             },
-            "vertices": [
-              {
-                "x": 940,
-                "y": 730
-              }
-            ],
             "tools": {
               "items": [
                 "boundary",
@@ -1701,7 +1838,13 @@
                 "target-arrowhead"
               ],
               "name": null
-            }
+            },
+            "vertices": [
+              {
+                "x": 940,
+                "y": 730
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -1747,11 +1890,24 @@
                   "new": false,
                   "number": 98,
                   "score": ""
+                },
+                {
+                  "id": "d338f87b-1573-45f6-a68a-66f928bb09df",
+                  "title": "Sensitive data exposure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Sensitive information may be transmitted without sufficient protection or accidentally logged. This could allow unauthorized users or attackers to read or misuse the data, especially if intercepted during transit or leaked through error messages.",
+                  "mitigation": "- Encrypt all communications via TLS\n- Avoid including sensitive information in error responses",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 110,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
                 "tampering": 1,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -1872,18 +2028,31 @@
                   "title": "Personal data can be stolen",
                   "status": "Open",
                   "severity": "TBD",
-                  "type": "Tampering",
+                  "type": "Information disclosure",
                   "description": "An adversary in the middle can steal the personal data of the user.",
                   "mitigation": "Use Transport Layer Security (TLS) for the communication.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 104,
                   "score": ""
+                },
+                {
+                  "id": "0736062b-493a-460d-b40a-75cd422efcea",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "for example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 109,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 0,
+                "tampering": 2,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             },
@@ -4363,6 +4532,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Xiaoping",
-    "threatTop": 105
+    "threatTop": 121
   }
 }
