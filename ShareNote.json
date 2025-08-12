@@ -3,7 +3,7 @@
   "summary": {
     "title": "ShareNote",
     "owner": "George",
-    "description": "The system under study is a web-based collaborative note-taking app, called ShareNote. The app allows users to\ncreate notes, and share them so others can either read or edit notes, depending on permissions set by the creator\nof the note. Users can also comment on notes.",
+    "description": "The system under study is a web-based collaborative note-taking app, called ShareNote. The app allows users to\ncreate notes, and share them so others can either read or edit notes, depending on permissions set by the creator\nof the note. Users can also comment on notes.\n\nSystem Overview \n\nShareNote allows users to: \n\nCreate and edit notes containing text, images, hyperlinks, and internal note references. \n\nShare notes via secret links (with read/edit permissions) or make them publicly readable. \n\nComment on shared notes (text-only). \n\nManage access controls (creator can delete comments, restrict editing). \n\nKey Components \n\nFrontend: Web interface (HTTPS, accessible on desktop/mobile). \n\nBackend: On-premises server (firewall-protected, reverse proxy). \n\nDatabase: On-premises, not directly internet-accessible. \n",
     "id": 0
   },
   "detail": {
@@ -260,7 +260,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -281,12 +282,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "c94d572e-d25c-449f-b6e6-a1774d3c183d",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 87,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "modification request"
@@ -311,7 +331,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -332,12 +353,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "bceddb06-20b2-4233-8fad-cc8000f1a64b",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 89,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "database operation"
@@ -362,7 +402,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -383,12 +424,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "87040b5e-bdc6-4686-96a3-060a584f866a",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 81,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "system modification"
@@ -413,7 +473,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -434,12 +495,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "aec8d43d-3d62-4d50-a158-c3b37ff86499",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 86,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "note data"
@@ -453,18 +533,14 @@
               "cell": "d17485b9-3364-4faa-a683-cf4306cad290",
               "port": "edc8c1a1-1e33-42f5-ae65-e926846de296"
             },
-            "vertices": [
-              {
-                "x": 1000,
-                "y": -30
-              }
-            ]
+            "vertices": []
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -485,12 +561,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "b9af5669-ccf3-483f-8298-a4721eaa8c0b",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 84,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "comment data"
@@ -515,7 +610,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -536,12 +632,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "93829451-19f0-41da-89cf-e44a5c293238",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 85,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "share data"
@@ -566,7 +681,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -587,12 +703,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "f933c9d4-249f-4b69-8f42-b0eeefd21b25",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 80,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "share confirmation"
@@ -614,42 +749,11 @@
             ]
           },
           {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "Web Server / Database Boundary",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false
-            },
-            "labels": [
-              "Web Server / Database Boundary"
-            ],
-            "id": "e2897330-d30f-49c3-bec1-3cf727e18cfc",
-            "source": {
-              "x": 860,
-              "y": -540
-            },
-            "target": {
-              "x": 1040,
-              "y": 1170
-            },
-            "vertices": [
-              {
-                "x": 990,
-                "y": 430
-              }
-            ]
-          },
-          {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -670,12 +774,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "aa842fe0-361c-4003-b342-cbd8570629dd",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 77,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "comment request"
@@ -700,7 +823,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -721,12 +845,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "852229b4-b763-4d78-bef5-b45fe0d2e788",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 79,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "share note request"
@@ -783,7 +926,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -804,12 +948,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "cabcdbb9-ec2b-492d-92c8-aaa2be06cd55",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 91,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "database operation"
@@ -834,7 +997,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -855,12 +1019,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "d3a51620-7248-4c87-886a-300378fadbf3",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 90,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "database operation"
@@ -885,7 +1068,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -906,12 +1090,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "36614bde-ffaa-429a-b68b-803f9191f2f3",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 78,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "comment confirmation"
@@ -925,18 +1128,14 @@
               "cell": "c8fad56e-7a3f-4ba6-9bfd-1f767e48a323",
               "port": "deb5eb68-d1a8-4ceb-b7fb-be279e558fd2"
             },
-            "vertices": [
-              {
-                "x": 430,
-                "y": 310
-              }
-            ]
+            "vertices": []
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -957,12 +1156,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "962ba73d-a4df-4aaa-97d6-f6c6ade7e2d5",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 76,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "create confirmation"
@@ -987,7 +1205,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1008,12 +1227,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "6addd082-ea92-44fa-ac8e-d08cf78aa2cf",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 83,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "comment data"
@@ -1038,7 +1276,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1059,12 +1298,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "7972b025-f791-4ea0-aeaa-d96f1220acc3",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 82,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "note data"
@@ -1078,18 +1336,14 @@
               "cell": "fc1dc17e-6ec8-4043-a69d-297ff7432bed",
               "port": "15d23439-4f47-46e0-b570-903d288ec324"
             },
-            "vertices": [
-              {
-                "x": 1080,
-                "y": -165
-              }
-            ]
+            "vertices": []
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1110,12 +1364,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "ddb92667-3569-4e5e-a813-40e1faaa4291",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 74,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "view request"
@@ -1140,7 +1413,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1161,12 +1435,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "94e5b799-16e9-4205-ad28-f5a3f3ec6064",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "for example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 72,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "view request"
@@ -1180,18 +1473,14 @@
               "cell": "fc1dc17e-6ec8-4043-a69d-297ff7432bed",
               "port": "b5696da3-bf3b-4d75-9431-0a14a7f33028"
             },
-            "vertices": [
-              {
-                "x": 440,
-                "y": -165
-              }
-            ]
+            "vertices": []
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1208,16 +1497,35 @@
             "data": {
               "type": "tm.Flow",
               "name": "note and comment ",
-              "description": "note and comment data contains:\n* noteId: String\n* title: String\n* content: Content,\n* createdAt: DateTime\n* owner: User\n* comments: List<Comment>",
+              "description": "note and comment data contains:\n* noteId: String\n* title: String\n* content: Content,\n* createdAt: D想·ateTime\n* owner: User\n* comments: List<Comment>",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "8ff61a66-bbdc-4c10-b157-fad1f7f415bc",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 75,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "note and comment "
@@ -1242,7 +1550,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1263,12 +1572,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "1be8c48a-9418-4097-8dbb-dc1353428a9a",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 73,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "note and comment data"
@@ -1293,7 +1621,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1314,12 +1643,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "2e9afade-b334-4481-9e05-a3e76717be50",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 88,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "modification confirmation"
@@ -1339,6 +1687,358 @@
                 "y": 730
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "dec59af3-0dec-4afd-ab8b-848d964654ec",
+            "source": {
+              "cell": "fffd7ccf-dcc6-4a5b-822d-9e4fbcd334bd",
+              "port": "edc8c1a1-1e33-42f5-ae65-e926846de296"
+            },
+            "target": {
+              "x": 1180,
+              "y": 390
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "login data",
+              "description": "Username / Email – The unique identifier for the user’s account.\n\nPassword – The secret key chosen by the user for account access.\nSession Token / Cookie – Created after successful login to keep the user authenticated without re-entering credentials.\n\nMulti-Factor Authentication (MFA) Code (if implemented) – A one-time passcode sent to email/SMS or generated by an authenticator app.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "32592532-946a-4f74-b377-e52f509f9aaf",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "for example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 98,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "login data"
+            ],
+            "id": "602e41b9-6ae1-42ab-8ae7-946071819b40",
+            "source": {
+              "cell": "ec7fa741-b677-429d-affe-09df6394501f",
+              "port": "f6538eb0-9359-49af-a1fe-f6c068420955"
+            },
+            "target": {
+              "cell": "4edad714-ae72-4127-b8d1-54d765a1d367",
+              "port": "bf79f26d-616c-4bac-bbc0-817766405c82"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "end-user personal\ndetails",
+              "description": "Identity Information\nFull name\nUsername / display name\nProfile picture\nContact Information\nEmail address\nPhone number (if required for MFA or notifications)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "270dc14e-2b30-432b-b17d-16a41f12f4a5",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 100,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "end-user personal\ndetails"
+            ],
+            "id": "202f1141-e5b4-4c4f-b09a-003ce94999db",
+            "source": {
+              "cell": "4edad714-ae72-4127-b8d1-54d765a1d367",
+              "port": "45877ef0-452c-40f2-95e8-c29668fab3d5"
+            },
+            "target": {
+              "cell": "b1556f56-9688-492a-bbc5-f38c4c83e415",
+              "port": "91903c17-f095-4151-9442-5fd8fb391443"
+            },
+            "vertices": [],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "personal details data",
+              "description": "User details include:\n  * full name\n  * address\n  * mobile phone number\n  * email address\n  * password",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "ba421356-fbc5-4953-9e33-097235bf0e39",
+                  "title": "Personal data can be stolen",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "An adversary in the middle can steal the personal data of the user.",
+                  "mitigation": "Use Transport Layer Security (TLS) for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 104,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "personal details data"
+            ],
+            "id": "ac2499f7-460f-4c0f-bcea-1dcb12b53a11",
+            "source": {
+              "cell": "ec7fa741-b677-429d-affe-09df6394501f",
+              "port": "f6538eb0-9359-49af-a1fe-f6c068420955"
+            },
+            "target": {
+              "cell": "4cb9ca11-a975-48c9-8cb3-90069ad09959",
+              "port": "bf79f26d-616c-4bac-bbc0-817766405c82"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Web Server / Database Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "labels": [
+              "Web Server / Database Boundary"
+            ],
+            "id": "e2897330-d30f-49c3-bec1-3cf727e18cfc",
+            "source": {
+              "x": 840,
+              "y": -730
+            },
+            "target": {
+              "x": 1040,
+              "y": 1170
+            },
+            "vertices": [
+              {
+                "x": 990,
+                "y": 430
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "end-user personal data",
+              "description": "Identity Information\nFull name\nUsername / display name\nProfile picture\nContact Information\nEmail address\nPhone number (if required for MFA or notifications)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "dae33c33-1b7f-4cd9-bed3-ec4d5ed7426e",
+                  "title": "Insecure connection",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "For example, data can be tampered by an adversary in the middle where the address for the delivery can be modified.",
+                  "mitigation": "Use Transport Layer Security for the communication.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 105,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "end-user personal data"
+            ],
+            "id": "4b13c331-e417-43ed-94cf-ebb9a630f296",
+            "source": {
+              "cell": "4cb9ca11-a975-48c9-8cb3-90069ad09959",
+              "port": "45877ef0-452c-40f2-95e8-c29668fab3d5"
+            },
+            "target": {
+              "cell": "b1556f56-9688-492a-bbc5-f38c4c83e415",
+              "port": "91903c17-f095-4151-9442-5fd8fb391443"
+            },
+            "vertices": []
           },
           {
             "position": {
@@ -1574,11 +2274,13 @@
                 "text": "Content Datastore"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1675,17 +2377,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": [],
+              "threats": [
+                {
+                  "id": "d9f9fc60-982b-4227-9de2-fbe8df172082",
+                  "title": "Datastore unwanted access",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "The datastore must be access-protected to only authorised personnel. ",
+                  "mitigation": "- Datastore credentials are securely stored on password vaults with limited set of users having access (apply least privilege principle).\n- Datastore credentials are injected into connecting software from secured variables or files (apply least privilege principle).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 92,
+                  "score": ""
+                }
+              ],
               "threatFrequency": {
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             }
@@ -1704,11 +2420,13 @@
                 "text": "Comment Datastore"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1805,17 +2523,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": [],
+              "threats": [
+                {
+                  "id": "c36f8b96-1add-458a-b479-35e181a4790f",
+                  "title": "Datastore unwanted access",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "The datastore must be access-protected to only authorised personnel. ",
+                  "mitigation": "- Datastore credentials are securely stored on password vaults with limited set of users having access (apply least privilege principle).\n- Datastore credentials are injected into connecting software from secured variables or files (apply least privilege principle).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 93,
+                  "score": ""
+                }
+              ],
               "threatFrequency": {
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             }
@@ -2339,11 +3071,13 @@
                 "text": "SharedNote Datastore"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2440,17 +3174,31 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": [],
+              "threats": [
+                {
+                  "id": "7d1eb150-6b45-4e35-a538-1452420691e2",
+                  "title": "Datastore unwanted access",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "The datastore must be access-protected to only authorised personnel. ",
+                  "mitigation": "- Datastore credentials are securely stored on password vaults with limited set of users having access (apply least privilege principle).\n- Datastore credentials are injected into connecting software from secured variables or files (apply least privilege principle).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 94,
+                  "score": ""
+                }
+              ],
               "threatFrequency": {
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 0,
+                "informationDisclosure": 1,
                 "denialOfService": 0
               }
             }
@@ -2469,8 +3217,8 @@
                 "text": "Database Server Administrator "
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2567,13 +3315,13 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
               "threats": [
                 {
                   "id": "5ed9086b-27f2-4818-af93-f07439c46fe9",
                   "title": "Impersonation of an Administrator Account",
-                  "status": "Mitigated",
+                  "status": "Open",
                   "severity": "Medium",
                   "type": "Spoofing",
                   "description": "An attacker or malicious insider may attempt to gain administrator privileges by stealing admin credentials, forging admin session tokens, or exploiting authentication flaws.",
@@ -2598,7 +3346,7 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 2,
+                "spoofing": 3,
                 "repudiation": 4
               }
             },
@@ -3167,6 +3915,488 @@
                 "elevationOfPrivilege": 1
               }
             }
+          },
+          {
+            "position": {
+              "x": 610,
+              "y": -430
+            },
+            "size": {
+              "width": 170,
+              "height": 140
+            },
+            "attrs": {
+              "text": {
+                "text": "Login"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "5b041b96-cce6-4f18-9a85-3fa0c3c16f9f"
+                },
+                {
+                  "group": "right",
+                  "id": "45877ef0-452c-40f2-95e8-c29668fab3d5"
+                },
+                {
+                  "group": "bottom",
+                  "id": "c8232fcc-7821-4f35-b85d-1a777f716dbb"
+                },
+                {
+                  "group": "left",
+                  "id": "bf79f26d-616c-4bac-bbc0-817766405c82"
+                }
+              ]
+            },
+            "id": "4edad714-ae72-4127-b8d1-54d765a1d367",
+            "zIndex": 23,
+            "data": {
+              "type": "tm.Process",
+              "name": "Login",
+              "description": "To access the ShareNote system, a user must perform the login process, which involves entering their registered credentials, such as username and password, into the system’s authentication interface. This action verifies the user’s identity and grants them access to the features and resources available within the platform.\n",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "cb86adcb-918f-432c-ba0c-f159dc9f44b8",
+                  "title": "Unauthorized Access to Notes",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An attacker pretends to be an authorized user (e.g., by using stolen session tokens) to view notes they shouldn’t have access to.",
+                  "mitigation": "- Validate session tokens for every request\n- Enforce strict server-side access control\n- Implement Multi-Factor Authentication (MFA) for sensitive accounts",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 95,
+                  "score": ""
+                },
+                {
+                  "id": "eb253f73-a879-4c7e-8552-cfd46a3277f8",
+                  "title": "Manipulating Request Parameters",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "A user alters parameters (e.g., noteId) in the request to view another user’s note without permission.",
+                  "mitigation": "- Perform server-side authorization checks\n- Validate all input against expected formats",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 96,
+                  "score": ""
+                },
+                {
+                  "id": "6579db57-6ee5-4a29-b922-a06b9537c66c",
+                  "title": "Exposure of Sensitive Information",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Viewing a note may expose sensitive content to unauthorized parties if access control is flawed or the note is cached in public areas.",
+                  "mitigation": "- Enforce strict access checks before returning content\n- Prevent caching of sensitive pages",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 97,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 1300,
+              "y": -270
+            },
+            "size": {
+              "width": 210,
+              "height": 110
+            },
+            "attrs": {
+              "text": {
+                "text": "User Datastore"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "614387b1-a5a6-4341-879f-12831492b807"
+                },
+                {
+                  "group": "right",
+                  "id": "b0dcae8e-d0f6-4522-8def-627a139e7299"
+                },
+                {
+                  "group": "bottom",
+                  "id": "e3d0aec3-5187-4fe0-a160-cf5ec015aba1"
+                },
+                {
+                  "group": "left",
+                  "id": "91903c17-f095-4151-9442-5fd8fb391443"
+                }
+              ]
+            },
+            "id": "b1556f56-9688-492a-bbc5-f38c4c83e415",
+            "zIndex": 24,
+            "data": {
+              "type": "tm.Store",
+              "name": "User Datastore",
+              "description": "This database contains all user data",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "cf205601-5c26-416a-8957-eb1d5cfa309f",
+                  "title": "Datastore unwanted access",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "The datastore must be access-protected to only authorised personnel. ",
+                  "mitigation": "- Datastore credentials are securely stored on password vaults with limited set of users having access (apply least privilege principle).\n- Datastore credentials are injected into connecting software from secured variables or files (apply least privilege principle).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 99,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 590,
+              "y": -641
+            },
+            "size": {
+              "width": 160,
+              "height": 180
+            },
+            "attrs": {
+              "text": {
+                "text": "Register"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "5b041b96-cce6-4f18-9a85-3fa0c3c16f9f"
+                },
+                {
+                  "group": "right",
+                  "id": "45877ef0-452c-40f2-95e8-c29668fab3d5"
+                },
+                {
+                  "group": "bottom",
+                  "id": "c8232fcc-7821-4f35-b85d-1a777f716dbb"
+                },
+                {
+                  "group": "left",
+                  "id": "bf79f26d-616c-4bac-bbc0-817766405c82"
+                }
+              ]
+            },
+            "id": "4cb9ca11-a975-48c9-8cb3-90069ad09959",
+            "zIndex": 25,
+            "data": {
+              "type": "tm.Process",
+              "name": "Register",
+              "description": "Action to register a user account to the ShareNote app",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "df0720e9-a838-4f7e-bc08-53742081ab84",
+                  "title": "Adversary in the middle attack",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "A man-in-the-middle could steal the credentials as the user registers.",
+                  "mitigation": "* Use secured connection protocol.\n* Ensure IP is consistent for the whole process.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 101,
+                  "score": ""
+                },
+                {
+                  "id": "e0dff56c-a540-4497-9204-c3bec18911fb",
+                  "title": "User uses an email they don't own",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "The user pretends they have access to an email address they don't own.",
+                  "mitigation": "* Ensure the email is not already in use.\n* Send a confirmation email with unique token to confirm email ownership.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 102,
+                  "score": ""
+                },
+                {
+                  "id": "54104bcd-3080-4310-98ea-beceab05cba2",
+                  "title": "Flooding of requests from same IP",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Many register request per second coming from the same IP.",
+                  "mitigation": "* Enable a CAPTCHA-like feature\n* Disallow multiple requests from same origin IP (IP blocking after multiple calls)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 103,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
+            }
           }
         ],
         "description": "ShareNote STRIDE diagram"
@@ -3174,6 +4404,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Xiaoping",
-    "threatTop": 71
+    "threatTop": 105
   }
 }
