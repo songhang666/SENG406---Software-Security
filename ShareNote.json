@@ -25,56 +25,6 @@
         "version": "2.4.1",
         "cells": [
           {
-            "shape": "edge",
-            "attrs": {
-              "line": {
-                "targetMarker": {
-                  "name": "block",
-                  "width": 12,
-                  "height": 8
-                }
-              }
-            },
-            "id": "a6c95de9-a5e9-4a9d-872e-41578dd4721b",
-            "zIndex": 0,
-            "source": {
-              "cell": "bd26356a-c0a6-4c58-8c0e-5aaaadb95c54",
-              "port": "8e699b55-bd42-464f-b280-274589ac26e8"
-            },
-            "target": {
-              "x": 1320,
-              "y": 270
-            },
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "vertices": [
-              {
-                "x": 1370,
-                "y": 590
-              },
-              {
-                "x": 1410,
-                "y": 530
-              },
-              {
-                "x": 1370,
-                "y": 390
-              }
-            ]
-          },
-          {
             "position": {
               "x": -110,
               "y": 165
@@ -182,7 +132,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "Logged-in User",
-              "description": "A user can create a note that can be shared with other users.",
+              "description": "Logged-in users are registered users who have successfully authenticated into the ShareNote system. They can view notes they have access to, create new notes, and share their notes with other users either publicly or through private share links. Additionally, they can comment on notes they have permission to access.",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -204,21 +154,34 @@
                 },
                 {
                   "id": "7a4ba7fa-74a1-4714-8c3f-51ef7ce9fb0d",
-                  "title": "Repudiation of creating note",
+                  "title": "Repudiation of Performed Actions",
                   "status": "Open",
                   "severity": "High",
                   "type": "Repudiation",
-                  "description": "A end-user could create notes impersonating another user.",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "A logged-in user might deny having performed an action, such as editing a note or sharing it, making it difficult to hold them accountable.",
+                  "mitigation": "- Maintain tamper-proof audit logs\n- Include timestamps and user IDs in logs\n- Digitally sign critical transactions or records\n- Restrict access to log modification",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 24,
+                  "score": ""
+                },
+                {
+                  "id": "09e56541-901b-4b4b-b28e-aa23dbf55fbb",
+                  "title": "Impersonation of Another User",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "A user may attempt to masquerade as another user by guessing session tokens, forging cookies, or manipulating request headers.",
+                  "mitigation": "- Enforce strong session management\n- Validate authentication tokens\n- Reject requests without valid credentials",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
                   "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 6,
-                "repudiation": 4
+                "repudiation": 6
               }
             }
           },
@@ -243,8 +206,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "userld\nemail\nusername",
-              "description": "userld: String\nemail: String\nusername: String",
+              "name": "create request",
+              "description": "create request data contains:\n* userld: String\n* title: String\n* content: Content",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -275,7 +238,7 @@
               }
             },
             "labels": [
-              "userld\nemail\nusername"
+              "create request"
             ],
             "id": "5a1d427e-4167-4216-8dc1-9fca8835afad",
             "source": {
@@ -288,12 +251,8 @@
             },
             "vertices": [
               {
-                "x": 360,
-                "y": 110
-              },
-              {
-                "x": 460,
-                "y": 72.5
+                "x": 390,
+                "y": 120
               }
             ]
           },
@@ -317,8 +276,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "admin credentials\nchange data",
-              "description": "",
+              "name": "modification request",
+              "description": "modification request data contains:\n* admin credentials\n* operation data",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -330,7 +289,7 @@
               "threats": []
             },
             "labels": [
-              "admin credentials\nchange data"
+              "modification request"
             ],
             "id": "6d91212a-569b-4d69-bc27-7cf9add8803a",
             "source": {
@@ -341,7 +300,12 @@
               "cell": "bd26356a-c0a6-4c58-8c0e-5aaaadb95c54",
               "port": "7a852e9b-0701-447a-a875-6e4318343331"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 1080,
+                "y": 640
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -363,7 +327,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "changed data",
+              "name": "database operation",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -376,7 +340,7 @@
               "threats": []
             },
             "labels": [
-              "changed data"
+              "database operation"
             ],
             "id": "a123e6b7-a5d1-4365-baf8-2638ac6fad71",
             "source": {
@@ -414,8 +378,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "confirmation message",
-              "description": "confirmation return to users",
+              "name": "system modification",
+              "description": "system modification data contains:\n* the data returned by the system and displayed on the user interface, can be note data, comment data, SharedNote data",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -427,7 +391,7 @@
               "threats": []
             },
             "labels": [
-              "confirmation message"
+              "system modification"
             ],
             "id": "615ff348-ba30-4355-b3a1-84fee829f169",
             "source": {
@@ -440,8 +404,8 @@
             },
             "vertices": [
               {
-                "x": 480,
-                "y": 530
+                "x": 350,
+                "y": 630
               }
             ]
           },
@@ -465,8 +429,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "contain note details",
-              "description": "",
+              "name": "note data",
+              "description": "note data contains:\n* note: Note (note data that stored)",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -478,7 +442,7 @@
               "threats": []
             },
             "labels": [
-              "contain note details"
+              "note data"
             ],
             "id": "bc693811-8f9d-43bd-99ca-852a18909e10",
             "source": {
@@ -489,7 +453,12 @@
               "cell": "d17485b9-3364-4faa-a683-cf4306cad290",
               "port": "edc8c1a1-1e33-42f5-ae65-e926846de296"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 1000,
+                "y": -30
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -512,7 +481,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "comment data",
-              "description": "",
+              "description": "comment data contains:\n* comment: Comment (comment data that stored)",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -562,7 +531,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "shared data",
+              "name": "share data",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -575,7 +544,7 @@
               "threats": []
             },
             "labels": [
-              "shared data"
+              "share data"
             ],
             "id": "409985e1-7e3b-4ba8-bc9b-3a3838d33880",
             "source": {
@@ -589,7 +558,7 @@
             "vertices": [
               {
                 "x": 1020,
-                "y": 384
+                "y": 394
               }
             ]
           },
@@ -613,8 +582,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "accessLevel\nsharedWith\nsharedNoteld\npublic\nnote",
-              "description": "sharedNoteld: String\nnote: Note\npublic:Boolean\nsharedWith:List<User>\naccessLevel:Enum {Read,Write}",
+              "name": "share confirmation",
+              "description": "share confirmation data\n- either contains (set private or public):\n* message (Indicates success or failure of the operation)\n* sharedNoteld: String\n* public:Boolean\n- or:\n* message (Indicates success or failure of the operation)\n* shareLink: URL (a shared secret link)\n* sharedNoteld: String\n* public: Boolean\n* accessLevel:Enum {Read,Write}",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -626,7 +595,7 @@
               "threats": []
             },
             "labels": [
-              "accessLevel\nsharedWith\nsharedNoteld\npublic\nnote"
+              "share confirmation"
             ],
             "id": "1e0fc6fe-fb3f-45ae-96a7-50fe272b7fcf",
             "source": {
@@ -637,7 +606,12 @@
               "cell": "c8fad56e-7a3f-4ba6-9bfd-1f767e48a323",
               "port": "05967aeb-1e31-484f-9416-7b59c21dfadc"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 360,
+                "y": 460
+              }
+            ]
           },
           {
             "shape": "trust-boundary-curve",
@@ -647,13 +621,13 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Boundary",
-              "name": "Web Server /Database Boundary",
+              "name": "Web Server / Database Boundary",
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false
             },
             "labels": [
-              "Web Server /Database Boundary"
+              "Web Server / Database Boundary"
             ],
             "id": "e2897330-d30f-49c3-bec1-3cf727e18cfc",
             "source": {
@@ -691,8 +665,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "noteId",
-              "description": "",
+              "name": "comment request",
+              "description": "comment request data contains:\n* userld: String\n* email: String\n* username: String\n* commentData: Comment",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -704,53 +678,7 @@
               "threats": []
             },
             "labels": [
-              "noteId"
-            ],
-            "id": "982b07f6-076b-4a86-a652-14007ef0c2af",
-            "source": {
-              "cell": "ec7fa741-b677-429d-affe-09df6394501f",
-              "port": "f6538eb0-9359-49af-a1fe-f6c068420955"
-            },
-            "target": {
-              "cell": "fc1dc17e-6ec8-4043-a69d-297ff7432bed",
-              "port": "b5696da3-bf3b-4d75-9431-0a14a7f33028"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "userld\nemail\nusername",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "userld\nemail\nusername"
+              "comment request"
             ],
             "id": "021b7538-c97d-4bdb-a3ee-17bf97d0ef9b",
             "source": {
@@ -761,7 +689,12 @@
               "cell": "bc3d2055-2ef1-428a-83e0-fda91efd204e",
               "port": "41637cef-6c49-4d3a-8d74-db63f6180532"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 420,
+                "y": 220
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -783,8 +716,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "userld\nemail\nusername",
-              "description": "",
+              "name": "share note request",
+              "description": "share note request \n- either contains (set private or public):\n* ownerUserId: String\n* public: Boolean\n- or:\n* ownerUserId: String\n* noteId: String\n* linkAccessLevel: Enum{Read, Write}\n",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -796,7 +729,7 @@
               "threats": []
             },
             "labels": [
-              "userld\nemail\nusername"
+              "share note request"
             ],
             "id": "77875dd5-1613-49ff-bd1d-891aac276bb2",
             "source": {
@@ -807,7 +740,12 @@
               "cell": "da711e7e-161f-46a4-9ba7-e6c3dc79de0d",
               "port": "41637cef-6c49-4d3a-8d74-db63f6180532"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 390,
+                "y": 390
+              }
+            ]
           },
           {
             "shape": "trust-boundary-curve",
@@ -861,7 +799,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "changed data",
+              "name": "database operation",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -874,7 +812,7 @@
               "threats": []
             },
             "labels": [
-              "changed data"
+              "database operation"
             ],
             "id": "c03e07ed-a8b7-4a3b-a65b-b864336293f4",
             "source": {
@@ -887,23 +825,533 @@
             },
             "vertices": [
               {
-                "x": 1620,
+                "x": 1640,
                 "y": 360
               }
             ]
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "database operation",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "database operation"
+            ],
+            "id": "050083ad-75b8-4670-b019-90e3aaeb45fd",
+            "source": {
+              "cell": "bd26356a-c0a6-4c58-8c0e-5aaaadb95c54",
+              "port": "8e699b55-bd42-464f-b280-274589ac26e8"
+            },
+            "target": {
+              "cell": "5cdedd4b-8793-42bd-80e7-76bb61ea18b1",
+              "port": "a4fdfdba-00c2-4d88-8273-d7a7c6598fc9"
+            },
+            "vertices": [
+              {
+                "x": 1450,
+                "y": 500
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "comment confirmation",
+              "description": "comment confirmation data contains:\n* message (Indicates success or failure of the operation)\n- if success:\n* commentId: String\n* content: Text\n* createdAt: DateTime\n* author: User",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "comment confirmation"
+            ],
+            "id": "9346a98e-50d8-41d5-9524-808902a33e1e",
+            "source": {
+              "cell": "bc3d2055-2ef1-428a-83e0-fda91efd204e",
+              "port": "5e99356c-5fdf-424b-ac0b-8e2a451d4c84"
+            },
+            "target": {
+              "cell": "c8fad56e-7a3f-4ba6-9bfd-1f767e48a323",
+              "port": "deb5eb68-d1a8-4ceb-b7fb-be279e558fd2"
+            },
+            "vertices": [
+              {
+                "x": 430,
+                "y": 310
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "create confirmation",
+              "description": "create confirmation data contains:\n* message (Indicates success or failure of the operation)\n- if success:\n* redirectNote: Note (object to which the user will be redirected)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "create confirmation"
+            ],
+            "id": "36fab548-c73c-4cc2-949c-a69edb44b866",
+            "source": {
+              "cell": "67257914-5a7f-48b2-a6e1-0a69bf9359c9",
+              "port": "5e99356c-5fdf-424b-ac0b-8e2a451d4c84"
+            },
+            "target": {
+              "cell": "c8fad56e-7a3f-4ba6-9bfd-1f767e48a323",
+              "port": "deb5eb68-d1a8-4ceb-b7fb-be279e558fd2"
+            },
+            "vertices": [
+              {
+                "x": 460,
+                "y": 160
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "comment data",
+              "description": "comment data contains:\n* comments: List<Comment> (comment data that requested)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "comment data"
+            ],
+            "id": "f257c8ee-c38f-4a4b-ab30-46ce80cf4403",
+            "source": {
+              "cell": "5cdedd4b-8793-42bd-80e7-76bb61ea18b1",
+              "port": "6f30a397-e452-4545-805b-fc97454e980a"
+            },
+            "target": {
+              "cell": "fc1dc17e-6ec8-4043-a69d-297ff7432bed",
+              "port": "15d23439-4f47-46e0-b570-903d288ec324"
+            },
+            "vertices": [
+              {
+                "x": 1080,
+                "y": 80
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "note data",
+              "description": "note data contains:\n* note: Note (note data that requested)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "note data"
+            ],
+            "id": "f7daf84a-9597-4e90-8a0c-ecb202e9d3c5",
+            "source": {
+              "cell": "d17485b9-3364-4faa-a683-cf4306cad290",
+              "port": "6f30a397-e452-4545-805b-fc97454e980a"
+            },
+            "target": {
+              "cell": "fc1dc17e-6ec8-4043-a69d-297ff7432bed",
+              "port": "15d23439-4f47-46e0-b570-903d288ec324"
+            },
+            "vertices": [
+              {
+                "x": 1080,
+                "y": -165
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "view request",
+              "description": "view request data contains:\n* noteId: String",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "view request"
+            ],
+            "id": "10ad3e92-7588-4f66-870e-ede216337530",
+            "source": {
+              "cell": "c8fad56e-7a3f-4ba6-9bfd-1f767e48a323",
+              "port": "deb5eb68-d1a8-4ceb-b7fb-be279e558fd2"
+            },
+            "target": {
+              "cell": "fc1dc17e-6ec8-4043-a69d-297ff7432bed",
+              "port": "b5696da3-bf3b-4d75-9431-0a14a7f33028"
+            },
+            "vertices": [
+              {
+                "x": 280,
+                "y": 60
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "view request",
+              "description": "view request data contains:\n* noteId: String",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "view request"
+            ],
+            "id": "982b07f6-076b-4a86-a652-14007ef0c2af",
+            "source": {
+              "cell": "ec7fa741-b677-429d-affe-09df6394501f",
+              "port": "f6538eb0-9359-49af-a1fe-f6c068420955"
+            },
+            "target": {
+              "cell": "fc1dc17e-6ec8-4043-a69d-297ff7432bed",
+              "port": "b5696da3-bf3b-4d75-9431-0a14a7f33028"
+            },
+            "vertices": [
+              {
+                "x": 440,
+                "y": -165
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "note and comment ",
+              "description": "note and comment data contains:\n* noteId: String\n* title: String\n* content: Content,\n* createdAt: DateTime\n* owner: User\n* comments: List<Comment>",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "note and comment "
+            ],
+            "id": "318dbdef-9fd8-4926-999d-703d87fe81a1",
+            "source": {
+              "cell": "fc1dc17e-6ec8-4043-a69d-297ff7432bed",
+              "port": "9083d14c-b283-4c84-b1e0-a93b56c41d29"
+            },
+            "target": {
+              "cell": "c8fad56e-7a3f-4ba6-9bfd-1f767e48a323",
+              "port": "deb5eb68-d1a8-4ceb-b7fb-be279e558fd2"
+            },
+            "vertices": [
+              {
+                "x": 430,
+                "y": 60
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "note and comment data",
+              "description": "note and comment data contains:\n* noteId: String\n* title: String\n* content: Content,\n* createdAt: DateTime\n* owner: User\n* comments: List<Comment>",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "note and comment data"
+            ],
+            "id": "740c3142-13a7-45a5-83e8-f6a966eccc1b",
+            "source": {
+              "cell": "fc1dc17e-6ec8-4043-a69d-297ff7432bed",
+              "port": "9083d14c-b283-4c84-b1e0-a93b56c41d29"
+            },
+            "target": {
+              "cell": "ec7fa741-b677-429d-affe-09df6394501f",
+              "port": "f6538eb0-9359-49af-a1fe-f6c068420955"
+            },
+            "vertices": [
+              {
+                "x": 360,
+                "y": -60
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "modification confirmation",
+              "description": "modification confirmation data contains:\n* message (Indicates success or failure of the operation)\n* the data returned by the system and displayed on the interface, can be note data, comment data, SharedNote data",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "modification confirmation"
+            ],
+            "id": "90320d4e-1d6c-4b89-b1b2-5dd5109a25c6",
+            "source": {
+              "cell": "bd26356a-c0a6-4c58-8c0e-5aaaadb95c54",
+              "port": "cc567b8b-1d87-4e94-be27-b80f4eddac10"
+            },
+            "target": {
+              "cell": "8f4422f4-718e-4a9e-bef8-1b8905e7b889",
+              "port": "568ae002-dee4-4afd-adc4-c1860840021e"
+            },
+            "vertices": [
+              {
+                "x": 940,
+                "y": 730
+              }
+            ]
+          },
+          {
             "position": {
-              "x": 700,
-              "y": -34.99999999999966
+              "x": 670,
+              "y": -70
             },
             "size": {
-              "width": 140,
-              "height": 130
+              "width": 170,
+              "height": 150
             },
             "attrs": {
               "text": {
-                "text": "create note"
+                "text": "Create Note"
               },
               "body": {
                 "stroke": "red",
@@ -999,8 +1447,8 @@
             "id": "67257914-5a7f-48b2-a6e1-0a69bf9359c9",
             "data": {
               "type": "tm.Process",
-              "name": "create note",
-              "description": "",
+              "name": "Create Note",
+              "description": "Action for a user to create a note for themselves in the ShareNote system.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1015,37 +1463,115 @@
                   "title": "HTTPS downgrade attack",
                   "status": "Open",
                   "severity": "High",
-                  "type": "Information disclosure",
+                  "type": "Tampering",
                   "description": "Attempt to access site via HTTP\t",
-                  "mitigation": "Enforce HTTPS with HSTS headers",
+                  "mitigation": "- Enforce HTTPS with HSTS headers\n- Redirect HTTP request to HTTPS",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 4,
                   "score": ""
+                },
+                {
+                  "id": "b578ff0f-b3c3-4f39-a64c-66aff9ebc999",
+                  "title": "Excessive Note Creating Requests",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "A user sends a large number of create requests, overloading the server or database.",
+                  "mitigation": "- Enable DDOS protection on reverse proxy server\n- Enable CAPTCHA\n- Apply rate limiting per user/IP\n- Cache non-sensitive content\n- Monitor and block abnormal request patterns",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 44,
+                  "score": ""
+                },
+                {
+                  "id": "9eb89a1a-77a6-4e37-ba90-b93254c65f7e",
+                  "title": "Impersonation of Another User to Create Note",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An attacker attempts to create a note under another user’s account by forging authentication credentials or session tokens.",
+                  "mitigation": "- Validate session tokens for each request\n- Enforce server-side checks to confirm note ownership\n- Use Multi-Factor Authentication (MFA) for sensitive actions",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 52,
+                  "score": ""
+                },
+                {
+                  "id": "364a79cc-976f-4a3c-baf7-614d5e3c7928",
+                  "title": "Injection of Malicious Content",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "A user inserts harmful scripts or malicious code into the note content to exploit other users when the note is viewed.",
+                  "mitigation": "- Implement server-side input validation and sanitization\n- Use context-aware output encoding\n- Apply Content Security Policy (CSP) to prevent script execution",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 56,
+                  "score": ""
+                },
+                {
+                  "id": "73bef155-304b-408d-8367-fb819a6b52b1",
+                  "title": "Repudiation of Note Creation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "A user denies creating a specific note, making it hard to hold them accountable.",
+                  "mitigation": "- Maintain tamper-proof creation logs\n- Include user ID, timestamp, and note metadata in logs\n- Store logs in an append-only or immutable format",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 57,
+                  "score": ""
+                },
+                {
+                  "id": "8802f207-3c11-41ba-a4b3-07d0a9a64c0f",
+                  "title": "Unauthorized Access to Sensitive Data",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "The note creation process inadvertently exposes sensitive information through debug messages, error responses, or unsecured storage.",
+                  "mitigation": "- Avoid including sensitive data in client responses\n- Use secure error handling without revealing internal details\n- Encrypt sensitive fields in storage",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 58,
+                  "score": ""
+                },
+                {
+                  "id": "7b0d1556-03eb-41fc-8547-ba6b339dfe6d",
+                  "title": "Escalating Privileges through Note Creation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "A user exploits the note creation function to gain unauthorized privileges, such as setting themselves as the owner of another user’s note.",
+                  "mitigation": "- Enforce strict server-side ownership assignment\n- Validate all role and permission changes\n- Implement role-based access control (RBAC) at the database level",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 61,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 0,
-                "tampering": 0,
-                "repudiation": 0,
-                "informationDisclosure": 2,
-                "denialOfService": 0,
-                "elevationOfPrivilege": 0
+                "spoofing": 2,
+                "tampering": 2,
+                "repudiation": 1,
+                "informationDisclosure": 4,
+                "denialOfService": 3,
+                "elevationOfPrivilege": 1
               }
             }
           },
           {
             "position": {
-              "x": 1120,
-              "y": -65
+              "x": 1395,
+              "y": -10
             },
             "size": {
-              "width": 180,
-              "height": 70
+              "width": 150,
+              "height": 90
             },
             "attrs": {
               "text": {
-                "text": "Content datastore"
+                "text": "Content Datastore"
               },
               "topLine": {
                 "strokeWidth": 1.5,
@@ -1144,7 +1670,7 @@
             "id": "d17485b9-3364-4faa-a683-cf4306cad290",
             "data": {
               "type": "tm.Store",
-              "name": "Content datastore",
+              "name": "Content Datastore",
               "description": "Content store\ntext:String\nimages:List<lmage>\nlinks:List<Link>\nreferencedNotes:List<Note>",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1166,16 +1692,16 @@
           },
           {
             "position": {
-              "x": 1190,
-              "y": 165.0000000000001
+              "x": 1175,
+              "y": 130.0000000000001
             },
             "size": {
               "width": 150,
-              "height": 100
+              "height": 110
             },
             "attrs": {
               "text": {
-                "text": "Comment datastore"
+                "text": "Comment Datastore"
               },
               "topLine": {
                 "strokeWidth": 1.5,
@@ -1274,7 +1800,7 @@
             "id": "5cdedd4b-8793-42bd-80e7-76bb61ea18b1",
             "data": {
               "type": "tm.Store",
-              "name": "Comment datastore",
+              "name": "Comment Datastore",
               "description": "commentld: String\ncontent: Text\ncreatedAt: DateTime\nauthor:User",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1296,16 +1822,16 @@
           },
           {
             "position": {
-              "x": 710,
-              "y": 135
+              "x": 690,
+              "y": 145
             },
             "size": {
-              "width": 180,
-              "height": 140
+              "width": 200,
+              "height": 150
             },
             "attrs": {
               "text": {
-                "text": "comment on note"
+                "text": "Comment on Note"
               },
               "body": {
                 "stroke": "red",
@@ -1401,8 +1927,8 @@
             "id": "bc3d2055-2ef1-428a-83e0-fda91efd204e",
             "data": {
               "type": "tm.Process",
-              "name": "comment on note",
-              "description": "",
+              "name": "Comment on Note",
+              "description": "Action for a user to comment on a specific note they can access in the ShareNote system.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1418,8 +1944,8 @@
                   "status": "Open",
                   "severity": "High",
                   "type": "Tampering",
-                  "description": "Unauthorized editing via compromised session or link.",
-                  "mitigation": "Use secure tokens, validate permissions on every request.",
+                  "description": "Unauthorized editing or deletion via compromised session or link without authorization.",
+                  "mitigation": "- Use secure tokens, validate permissions on every request.\n- Implement role-based permissions for comment management",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 8,
@@ -1431,8 +1957,8 @@
                   "status": "Open",
                   "severity": "High",
                   "type": "Repudiation",
-                  "description": "Users deny their actions",
-                  "mitigation": "Maintain audit logs with timestamps, IP addresses, and user IDs.",
+                  "description": "A user denies having created or removed a comment, making it difficult to trace actions.",
+                  "mitigation": "- Maintain tamper-proof comment logs\n- Include user ID, timestamp, and note ID in records\n- Store logs in an append-only format",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 9,
@@ -1444,36 +1970,101 @@
                   "status": "Open",
                   "severity": "Critical",
                   "type": "Denial of service",
-                  "description": "Attackers overload the server",
-                  "mitigation": "Rate limiting, CAPTCHA, IP throttling",
+                  "description": "A malicious user sends a large number of comment requests, overloading the server or database and overwhelm storage.",
+                  "mitigation": "- Limit number of comment submissions per user under the same note\n- Enable DDOS protection on reverse proxy server\n- Enable CAPTCHA\n- Apply rate limiting per user/IP\n- Cache non-sensitive content\n- Monitor and block abnormal request patterns",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 11,
                   "score": ""
+                },
+                {
+                  "id": "266d68be-026a-4cf3-b654-00709b4f532c",
+                  "title": "HTTPS downgrade attack",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attempt to access site via HTTP\t",
+                  "mitigation": "- Enforce HTTPS with HSTS headers\n- Redirect HTTP request to HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 49,
+                  "score": ""
+                },
+                {
+                  "id": "5fb37aca-60ab-49e6-b15d-41af87d5593f",
+                  "title": "Impersonation of Another User to Comment on Note",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An attacker attempts to comment on a note under another user’s account by forging authentication credentials or session tokens.",
+                  "mitigation": "- Validate session tokens for each request\n- Enforce server-side checks to confirm note ownership\n- Use Multi-Factor Authentication (MFA) for sensitive actions",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 53,
+                  "score": ""
+                },
+                {
+                  "id": "5f01c901-03ba-468c-99c7-bede83c3d227",
+                  "title": "Unauthorized Access to Sensitive Data",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "The commenting process inadvertently exposes sensitive information through debug messages, error responses, or unsecured storage.",
+                  "mitigation": "- Avoid including sensitive data in client responses\n- Use secure error handling without revealing internal details\n- Encrypt sensitive fields in storage",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 59,
+                  "score": ""
+                },
+                {
+                  "id": "73234378-094f-4414-bd4c-474e8599cb03",
+                  "title": "Leaking Sensitive Information Through Comments",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Comments may inadvertently contain sensitive content (e.g., private note details, credentials) that becomes visible to others.",
+                  "mitigation": "- Educate users about safe content in comments\n- Allow note owners to delete inappropriate comments\n- Restrict comment visibility based on note access",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 62,
+                  "score": ""
+                },
+                {
+                  "id": "c9015202-0285-45a8-8158-e4e853b654c4",
+                  "title": "Injection of Malicious Content",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "A user inserts harmful scripts or malicious code into the comment to exploit other users when the note is viewed.",
+                  "mitigation": "- Implement server-side input validation and sanitization\n- Use context-aware output encoding\n- Apply Content Security Policy (CSP) to prevent script execution",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 63,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 0,
-                "tampering": 2,
-                "repudiation": 2,
-                "informationDisclosure": 0,
-                "denialOfService": 2,
-                "elevationOfPrivilege": 0
+                "spoofing": 2,
+                "tampering": 5,
+                "repudiation": 3,
+                "informationDisclosure": 4,
+                "denialOfService": 5,
+                "elevationOfPrivilege": 1
               }
             }
           },
           {
             "position": {
               "x": 750,
-              "y": 310
+              "y": 350
             },
             "size": {
-              "width": 160,
-              "height": 140
+              "width": 170,
+              "height": 150
             },
             "attrs": {
               "text": {
-                "text": "share note"
+                "text": "Share Note"
               },
               "body": {
                 "stroke": "red",
@@ -1569,8 +2160,8 @@
             "id": "da711e7e-161f-46a4-9ba7-e6c3dc79de0d",
             "data": {
               "type": "tm.Process",
-              "name": "share note",
-              "description": "",
+              "name": "Share Note",
+              "description": "Action for a note creator to share a note by making it public in read-only mode or by generating a secret link granting read or edit access to specific users.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1608,12 +2199,12 @@
                 },
                 {
                   "id": "4cd20659-f423-4836-9e22-b3dc57541e01",
-                  "title": "Shared links leaked",
+                  "title": "Leaking Secret Share Links",
                   "status": "Open",
                   "severity": "Low",
                   "type": "Information disclosure",
-                  "description": "Anyone with the link may access sensitive content",
-                  "mitigation": "Provide link access controls, expiration, and audit trail",
+                  "description": "Private share links may be exposed via referrer headers, browser history, or intercepted if not protected. Anyone with the link may access sensitive content.",
+                  "mitigation": "- Generate high-entropy, unguessable tokens\n- Allow owners to revoke share links and set expiration times",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 16,
@@ -1634,25 +2225,103 @@
                 },
                 {
                   "id": "cccc6507-3950-40d4-97be-d1b5b0615aa3",
-                  "title": "Server overload via reverse proxy",
+                  "title": "Excessive Viewing Requests",
                   "status": "Open",
                   "severity": "High",
                   "type": "Denial of service",
-                  "description": "Attacks on proxy causing downtime\t",
-                  "mitigation": "DDoS protection, failover proxies\t",
+                  "description": "A user sends a large number of share note requests, overloading the server or database.",
+                  "mitigation": "- Enable DDOS protection on reverse proxy server\n- Enable CAPTCHA\n- Apply rate limiting per user/IP\n- Cache non-sensitive content\n- Monitor and block abnormal request patterns",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 25,
                   "score": ""
+                },
+                {
+                  "id": "8d03b94e-0092-4a8f-8f46-dfd56a0c7d28",
+                  "title": "HTTPS downgrade attack",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attempt to access site via HTTP\t",
+                  "mitigation": "- Enforce HTTPS with HSTS headers\n- Redirect HTTP request to HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 51,
+                  "score": ""
+                },
+                {
+                  "id": "161bbd6c-c02e-481f-af54-60d434badabf",
+                  "title": "Impersonation of Another User to Share Note",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An attacker attempts to share a note under another user’s account by forging authentication credentials or session tokens.",
+                  "mitigation": "- Validate session tokens for each request\n- Enforce server-side checks to confirm note ownership\n- Use Multi-Factor Authentication (MFA) for sensitive actions",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 55,
+                  "score": ""
+                },
+                {
+                  "id": "1c1759d4-8dde-4c40-ada9-5b6112fc438e",
+                  "title": "Unauthorized Access to Sensitive Data",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "The sharing note process inadvertently exposes sensitive information through debug messages, error responses, or unsecured storage.",
+                  "mitigation": "- Avoid including sensitive data in client responses\n- Use secure error handling without revealing internal details\n- Encrypt sensitive fields in storage",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 60,
+                  "score": ""
+                },
+                {
+                  "id": "8ca1bd60-e7f9-472b-b43b-7d491fb03e0d",
+                  "title": "Altering Share Permissions",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "A malicious user modifies parameters (e.g., accessLevel, public flag) in the share request to grant unauthorized access.",
+                  "mitigation": "- Validate all input server-side\n- Enforce role-based access control (RBAC) at the API level\n- Reject unauthorized changes to note permissions",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 64,
+                  "score": ""
+                },
+                {
+                  "id": "b8370e8a-a6a2-4e67-b305-0d066b3f961e",
+                  "title": "Denying a Share Action",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "A user claims they never shared a note, making it difficult to prove the action took place.",
+                  "mitigation": "- Maintain tamper-proof share activity logs\n- Include user ID, note ID, access level, and timestamp\n- Protect logs from modification",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 65,
+                  "score": ""
+                },
+                {
+                  "id": "20bbb747-7ece-47d0-8a4d-fa939163833c",
+                  "title": "Escalating Access Through Sharing",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "A user with limited permissions shares a note in a way that grants themselves or others higher privileges (e.g., read → edit).",
+                  "mitigation": "- Validate permission changes on the server\n- Restrict share operations to authorized roles\n- Require explicit confirmation for privilege-increasing shares",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 66,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 3,
-                "tampering": 2,
-                "repudiation": 0,
-                "informationDisclosure": 4,
-                "denialOfService": 2,
-                "elevationOfPrivilege": 0
+                "spoofing": 4,
+                "tampering": 4,
+                "repudiation": 1,
+                "informationDisclosure": 6,
+                "denialOfService": 4,
+                "elevationOfPrivilege": 1
               }
             }
           },
@@ -1667,7 +2336,7 @@
             },
             "attrs": {
               "text": {
-                "text": "SharedNote datastore"
+                "text": "SharedNote Datastore"
               },
               "topLine": {
                 "strokeWidth": 1.5,
@@ -1766,7 +2435,7 @@
             "id": "fffd7ccf-dcc6-4a5b-822d-9e4fbcd334bd",
             "data": {
               "type": "tm.Store",
-              "name": "SharedNote datastore",
+              "name": "SharedNote Datastore",
               "description": "sharedNoteld: String\nnote: Note\npublic:Boolean\nsharedWith:List<User>\naccessLevel:Enum {Read, Write}",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1788,20 +2457,20 @@
           },
           {
             "position": {
-              "x": 690,
-              "y": 480
+              "x": 730,
+              "y": 540
             },
             "size": {
-              "width": 240,
-              "height": 140
+              "width": 220,
+              "height": 120
             },
             "attrs": {
               "text": {
                 "text": "Database Server Administrator "
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -1894,30 +2563,43 @@
             "data": {
               "type": "tm.Actor",
               "name": "Database Server Administrator ",
-              "description": "",
+              "description": "Database server administrator are privileged users with control over the ShareNote system. They can manage user accounts, assign permissions, delete content, perform backups, and directly modify the database through administrative processes.",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": [
                 {
-                  "id": "749bd2db-f6c9-4f6d-9dac-4ebcaaf96a8d",
-                  "title": "Comment deletion by unauthorized user\t",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "",
-                  "description": "Only note creator can delete, attacker may try to escalate",
-                  "mitigation": "Enforce role-based access control (RBAC) strictly",
+                  "id": "5ed9086b-27f2-4818-af93-f07439c46fe9",
+                  "title": "Impersonation of an Administrator Account",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "An attacker or malicious insider may attempt to gain administrator privileges by stealing admin credentials, forging admin session tokens, or exploiting authentication flaws.",
+                  "mitigation": "- Require Multi-Factor Authentication (MFA) for admin logins\n- Restrict admin access to trusted IP ranges or VPN\n- Use strong, unique passwords with enforced rotation\n- Monitor and alert on unusual login activity",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 28,
+                  "number": 38,
+                  "score": ""
+                },
+                {
+                  "id": "6cea435f-83ee-4c30-aa77-f71b7db367d5",
+                  "title": "Repudiation of Administrative Actions",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "An administrator could deny having performed a system change (e.g., deleting a note, modifying the database), making accountability difficult.",
+                  "mitigation": "- Maintain secure, tamper-proof audit logs\n- Digitally sign and timestamp all administrative actions\n- Store logs in an append-only system\n- Regularly review logs with separation of duties",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 39,
                   "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 0,
-                "repudiation": 0
+                "spoofing": 2,
+                "repudiation": 4
               }
             },
             "children": [
@@ -1926,16 +2608,16 @@
           },
           {
             "position": {
-              "x": 1120,
-              "y": 660
+              "x": 1140,
+              "y": 680
             },
             "size": {
-              "width": 140,
+              "width": 150,
               "height": 150
             },
             "attrs": {
               "text": {
-                "text": "system configuration "
+                "text": "Modify System Data"
               },
               "body": {
                 "stroke": "red",
@@ -2031,8 +2713,8 @@
             "id": "bd26356a-c0a6-4c58-8c0e-5aaaadb95c54",
             "data": {
               "type": "tm.Process",
-              "name": "system configuration ",
-              "description": "",
+              "name": "Modify System Data",
+              "description": "Action for an administrator to directly update, insert, or delete records in the database, including user accounts, notes, comments, and system configurations.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -2054,26 +2736,91 @@
                   "new": false,
                   "number": 29,
                   "score": ""
+                },
+                {
+                  "id": "254d86c0-16ea-4e57-b7ed-be52c6427e6b",
+                  "title": "Impersonating an Administrator",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An attacker gains access to admin credentials or session tokens and uses the modify system data process to alter critical records.",
+                  "mitigation": "- Enforce Multi-Factor Authentication (MFA) for admin accounts\n- Restrict admin access to trusted IPs or VPNs\n- Monitor and alert on unusual admin activity",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 67,
+                  "score": ""
+                },
+                {
+                  "id": "ee15863a-5e84-4ab1-a454-6271525d0909",
+                  "title": "Repudiation of Administrative Actions",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "An administrator could deny having performed a system change (e.g., deleting a note, modifying the database), making accountability difficult.",
+                  "mitigation": "- Maintain secure, tamper-proof audit logs\n- Digitally sign and timestamp all administrative actions\n- Store logs in an append-only system\n- Regularly review logs with separation of duties",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 68,
+                  "score": ""
+                },
+                {
+                  "id": "38f48395-b280-46c8-9dc6-04fd4ede3464",
+                  "title": "Exposing Sensitive Data During Modification",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Admin changes may reveal sensitive data in logs, error messages, or insecure channels.",
+                  "mitigation": "- Mask sensitive fields in logs\n- Use secure channels for all admin operations (HTTPS/SSH)\n- Restrict access",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 69,
+                  "score": ""
+                },
+                {
+                  "id": "2aba689d-7d4f-44bf-9b47-aa52798937d8",
+                  "title": "Privilege Abuse",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "Admin (Database Server Administrator and Internal Staff) uses modify system data process to grant themselves or another account higher privileges than intended.",
+                  "mitigation": "- Separate admin roles (e.g., DB admin vs. app admin)\n- Require change approvals for privilege alterations\n- Periodically review account privileges\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 70,
+                  "score": ""
+                },
+                {
+                  "id": "59338852-0909-484a-817c-fcfb713f41a0",
+                  "title": "Resource Exhaustion Through Bulk Changes",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Admin runs heavy modification scripts or queries that overwhelm the database or lock key tables.",
+                  "mitigation": "- Limit the size and frequency of bulk operations\n- Schedule large changes during maintenance windows\n- Implement query execution timeouts",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 71,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 0,
-                "tampering": 0,
-                "repudiation": 0,
-                "informationDisclosure": 0,
-                "denialOfService": 0,
-                "elevationOfPrivilege": 1
+                "spoofing": 1,
+                "tampering": 2,
+                "repudiation": 2,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 3
               }
             }
           },
           {
             "position": {
-              "x": -20,
-              "y": -80
+              "x": -109.99999999999996,
+              "y": -160
             },
             "size": {
-              "width": 170,
-              "height": 100
+              "width": 230,
+              "height": 110
             },
             "attrs": {
               "text": {
@@ -2087,6 +2834,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 21,
             "ports": {
               "groups": {
                 "top": {
@@ -2170,11 +2918,10 @@
               ]
             },
             "id": "ec7fa741-b677-429d-affe-09df6394501f",
-            "zIndex": 21,
             "data": {
               "type": "tm.Actor",
               "name": "Anonymous user (Guest) ",
-              "description": "",
+              "description": "Guests are users who have not logged into the ShareNote system. They can view public notes but cannot create, edit, comment on, or share notes.",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -2182,29 +2929,42 @@
               "providesAuthentication": false,
               "threats": [
                 {
-                  "id": "a2bf6ff2-f700-4680-93a3-0e94c6eb3654",
-                  "title": "User identity spoofing. Credential too weak or stolen",
-                  "status": "Open",
-                  "severity": "Medium",
+                  "id": "4634986d-d8be-4dc2-a7c7-8354637656eb",
+                  "title": "Impersonation of Another User",
+                  "status": "Mitigated",
+                  "severity": "High",
                   "type": "Spoofing",
-                  "description": "Credentials of user can be stolen or guessed. Attacker may impersonate users to gain access to notes\t\n",
-                  "mitigation": "Enforce strong authentication, session management.",
+                  "description": "A guest may attempt to masquerade as another user by guessing session tokens, forging cookies, or manipulating request headers.",
+                  "mitigation": "- Enforce strong session management\n- Validate authentication tokens\n- Reject requests without valid credentials",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 30,
+                  "number": 34,
+                  "score": ""
+                },
+                {
+                  "id": "996767bf-4771-4bb6-8c4b-02f7401b0b2b",
+                  "title": "False Action Denial",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "Unauthenticated guests can perform actions (e.g., access public content) and later deny having done so, making tracking difficult.",
+                  "mitigation": "- Use IP-based logging\n- Implement request fingerprinting\n- Append anonymous session IDs to activity logs",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 35,
                   "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 2,
-                "repudiation": 0
+                "repudiation": 1
               }
             }
           },
           {
             "position": {
-              "x": 650,
-              "y": -229.99999999999994
+              "x": 630,
+              "y": -280
             },
             "size": {
               "width": 180,
@@ -2212,7 +2972,7 @@
             },
             "attrs": {
               "text": {
-                "text": "note read-only"
+                "text": "View Note"
               },
               "body": {
                 "stroke": "red",
@@ -2222,6 +2982,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 22,
             "ports": {
               "groups": {
                 "top": {
@@ -2305,11 +3066,10 @@
               ]
             },
             "id": "fc1dc17e-6ec8-4043-a69d-297ff7432bed",
-            "zIndex": 22,
             "data": {
               "type": "tm.Process",
-              "name": "note read-only",
-              "description": "",
+              "name": "View Note",
+              "description": "Action for a user to view a specific note they have permission to access in the ShareNote system",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -2320,26 +3080,91 @@
               "privilegeLevel": "",
               "threats": [
                 {
-                  "id": "c35ed0ab-04f3-495e-8990-bbefcd6a665b",
-                  "title": "Note content tampering",
+                  "id": "09dcccf2-bdcd-4862-acf8-7a26b5835700",
+                  "title": "Unauthorized Access to Notes",
                   "status": "Open",
-                  "severity": "High",
-                  "type": "Tampering",
-                  "description": "Unauthorized editing via compromised session or link.",
-                  "mitigation": "Use secure tokens, validate permissions on every request.",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "An attacker pretends to be an authorized user (e.g., by using stolen session tokens) to view notes they shouldn’t have access to.",
+                  "mitigation": "- Validate session tokens for every request\n- Enforce strict server-side access control\n- Implement Multi-Factor Authentication (MFA) for sensitive accounts",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 31,
+                  "number": 40,
+                  "score": ""
+                },
+                {
+                  "id": "a206c84b-351d-47f9-aa5c-ba416611e401",
+                  "title": "Manipulating Request Parameters",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "A user alters parameters (e.g., noteId) in the request to view another user’s note without permission.",
+                  "mitigation": "- Perform server-side authorization checks\n- Validate all input against expected formats",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 41,
+                  "score": ""
+                },
+                {
+                  "id": "1fcde0ed-e2a1-4f9a-9734-a49cf8be1add",
+                  "title": "Exposure of Sensitive Information",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Viewing a note may expose sensitive content to unauthorized parties if access control is flawed or the note is cached in public areas.",
+                  "mitigation": "- Enforce strict access checks before returning content\n- Prevent caching of sensitive pages",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 42,
+                  "score": ""
+                },
+                {
+                  "id": "890e7e23-a55f-4a2a-926f-7f0829fb8c7a",
+                  "title": "Excessive Viewing Requests",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "A user sends a large number of view requests, overloading the server or database.",
+                  "mitigation": "- Enable DDOS protection on reverse proxy server\n- Enable CAPTCHA\n- Apply rate limiting per user/IP\n- Cache non-sensitive content\n- Monitor and block abnormal request patterns",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 43,
+                  "score": ""
+                },
+                {
+                  "id": "00d0d575-30e3-4cf4-874b-93f7eb4aa2b0",
+                  "title": "Bypassing Read-Only Restrictions",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "A user with read-only access exploits a flaw to modify the note while viewing it.",
+                  "mitigation": "- Enforce permissions at the API and database level\n- Use role-based access control\n- Validate all requests against allowed actions",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 46,
+                  "score": ""
+                },
+                {
+                  "id": "f2c42f93-6177-4ed8-ab77-ec5d174c6104",
+                  "title": "HTTPS downgrade attack",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Attempt to access site via HTTP\t",
+                  "mitigation": "- Enforce HTTPS with HSTS headers\n- Redirect HTTP request to HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 47,
                   "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 0,
-                "tampering": 2,
+                "spoofing": 1,
+                "tampering": 3,
                 "repudiation": 0,
-                "informationDisclosure": 0,
-                "denialOfService": 0,
-                "elevationOfPrivilege": 0
+                "informationDisclosure": 1,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 1
               }
             }
           }
@@ -2349,6 +3174,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Xiaoping",
-    "threatTop": 31
+    "threatTop": 71
   }
 }
