@@ -207,7 +207,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "create request",
-              "description": "create request data contains:\n* userld: String\n* title: String\n* content: Content",
+              "description": "The request data sent by a user to the system when creating a note.\ncreate request data contains:\n* userld: String\n* title: String\n* content: Content",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -278,7 +278,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "modification request",
-              "description": "modification request data contains:\n* admin credentials\n* operation data",
+              "description": "The request data sent by an admin to the system when modifying system data.\nmodification request data contains:\n* admin credentials\n* operation data",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -349,7 +349,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "database operation",
-              "description": "",
+              "description": "database operation data contains database operation commands",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -420,7 +420,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "system modification",
-              "description": "system modification data contains:\n* the data returned by the system and displayed on the user interface, can be note data, comment data, SharedNote data",
+              "description": "The modification data sent by system to a user when a related modification is completed by an admin.\nsystem modification data contains:\n* the data returned by the system and displayed on the user interface, can be note data, comment data, SharedNote data",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -491,7 +491,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "note data",
-              "description": "note data contains:\n* note: Note (note data that stored)",
+              "description": "The data sent by the system to the content database when the system is trying to store an note's content data.\nnote data contains:\n* note: Note (note data that stored)",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -557,7 +557,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "comment data",
-              "description": "comment data contains:\n* comment: Comment (comment data that stored)",
+              "description": "The data sent by the system to the content database when the system is trying to store data of a comment.\ncomment data contains:\n* comment: Comment (comment data that stored)",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -628,7 +628,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "share data",
-              "description": "",
+              "description": "The data sent by the system to the content database when the system is trying to store sharing data of a note.\n\nshare data contains:\nsharedNoteId: String\nnote: Note\npublic: Boolean\nsharedWith == []: List<User>\naccessLevel: Enum {Read, Write}",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -699,7 +699,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "share confirmation",
-              "description": "share confirmation data\n- either contains (set private or public):\n* message (Indicates success or failure of the operation)\n* sharedNoteld: String\n* public:Boolean\n- or:\n* message (Indicates success or failure of the operation)\n* shareLink: URL (a shared secret link)\n* sharedNoteld: String\n* public: Boolean\n* accessLevel:Enum {Read,Write}",
+              "description": "The response data sent by the system to a user when note sharing is completed.\nshare confirmation data\n- either contains (set private or public):\n* message (Indicates success or failure of the operation)\n* sharedNoteld: String\n* public:Boolean\n- or:\n* message (Indicates success or failure of the operation)\n* shareLink: URL (a shared secret link)\n* sharedNoteld: String\n* public: Boolean\n* accessLevel:Enum {Read,Write}",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -770,7 +770,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "comment request",
-              "description": "comment request data contains:\n* userld: String\n* email: String\n* username: String\n* commentData: Comment",
+              "description": "The request data sent by a user to the system when commenting on a note\ncomment request data contains:\n* userld: String\n* email: String\n* username: String\n* commentData: Comment",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -841,7 +841,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "share note request",
-              "description": "share note request \n- either contains (set private or public):\n* ownerUserId: String\n* public: Boolean\n- or:\n* ownerUserId: String\n* noteId: String\n* linkAccessLevel: Enum{Read, Write}\n",
+              "description": "The request data sent by a user to the system when sharing a note.\nshare note request \n- either contains (set private or public):\n* ownerUserId: String\n* public: Boolean\n- or:\n* ownerUserId: String\n* noteId: String\n* linkAccessLevel: Enum{Read, Write}\n",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -944,7 +944,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "database operation",
-              "description": "",
+              "description": "database operation data contains database operation commands",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1015,7 +1015,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "database operation",
-              "description": "",
+              "description": "database operation data contains database operation commands",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1086,7 +1086,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "comment confirmation",
-              "description": "comment confirmation data contains:\n* message (Indicates success or failure of the operation)\n- if success:\n* commentId: String\n* content: Text\n* createdAt: DateTime\n* author: User",
+              "description": "The response data sent by the system to a user when note commenting is completed.\ncomment confirmation data contains:\n* message (Indicates success or failure of the operation)\n- if success:\n* commentId: String\n* content: Text\n* createdAt: DateTime\n* author: User",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1128,7 +1128,12 @@
               "cell": "c8fad56e-7a3f-4ba6-9bfd-1f767e48a323",
               "port": "deb5eb68-d1a8-4ceb-b7fb-be279e558fd2"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 420,
+                "y": 260
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -1152,7 +1157,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "create confirmation",
-              "description": "create confirmation data contains:\n* message (Indicates success or failure of the operation)\n- if success:\n* redirectNote: Note (object to which the user will be redirected)",
+              "description": "The response data sent by the system to a user when note creation is completed.\ncreate confirmation data contains:\n* message (Indicates success or failure of the operation)\n- if success:\n* redirectNote: Note (object to which the user will be redirected)",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1223,7 +1228,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "comment data",
-              "description": "comment data contains:\n* comments: List<Comment> (comment data that requested)",
+              "description": "The data sent by the content database to the system when the system is trying to retrieve a note's comment data.\ncomment data contains:\n* comments: List<Comment> (comment data that requested)",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1294,7 +1299,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "note data",
-              "description": "note data contains:\n* note: Note (note data that requested)",
+              "description": "The data sent by the content database to the system when the system is trying to retrieve a note's content data.\nnote data contains:\n* note: Note (note data that requested)",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1360,7 +1365,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "view request",
-              "description": "view request data contains:\n* noteId: String",
+              "description": "The request data sent by a user to the system when request to view a note.\nview request data contains:\n* noteId: String",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1431,7 +1436,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "view request",
-              "description": "view request data contains:\n* noteId: String",
+              "description": "The request data sent by a user to the system when request to view a note.\nview request data contains:\n* noteId: String",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1497,7 +1502,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "note and comment ",
-              "description": "note and comment data contains:\n* noteId: String\n* title: String\n* content: Content,\n* createdAt: D想·ateTime\n* owner: User\n* comments: List<Comment>",
+              "description": "The response note data sent by the system to a user when viewing a note.\nnote and comment data contains:\n* noteId: String\n* title: String\n* content: Content,\n* createdAt: DateTime\n* owner: User\n* comments: List<Comment>",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1567,8 +1572,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "note and comment data",
-              "description": "note and comment data contains:\n* noteId: String\n* title: String\n* content: Content,\n* createdAt: DateTime\n* owner: User\n* comments: List<Comment>",
+              "name": "note and comment",
+              "description": "The response note data sent by the system to a user when viewing a note.\nnote and comment data contains:\n* noteId: String\n* title: String\n* content: Content,\n* createdAt: DateTime\n* owner: User\n* comments: List<Comment>",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1599,7 +1604,7 @@
               }
             },
             "labels": [
-              "note and comment data"
+              "note and comment"
             ],
             "id": "740c3142-13a7-45a5-83e8-f6a966eccc1b",
             "source": {
@@ -1639,7 +1644,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "modification confirmation",
-              "description": "modification confirmation data contains:\n* message (Indicates success or failure of the operation)\n* the data returned by the system and displayed on the interface, can be note data, comment data, SharedNote data",
+              "description": "The data sent by the system to an admin when the system notify the confirmation of modification to the admin.\nmodification confirmation data contains:\n* message (Indicates success or failure of the operation)\n* the data returned by the system and displayed on the interface, can be note data, comment data, SharedNote data",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1686,53 +1691,17 @@
                 "x": 940,
                 "y": 730
               }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "Data Flow"
             ],
-            "id": "dec59af3-0dec-4afd-ab8b-848d964654ec",
-            "source": {
-              "cell": "fffd7ccf-dcc6-4a5b-822d-9e4fbcd334bd",
-              "port": "edc8c1a1-1e33-42f5-ae65-e926846de296"
-            },
-            "target": {
-              "x": 1180,
-              "y": 390
-            },
-            "vertices": []
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -1756,7 +1725,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "login data",
-              "description": "Username / Email – The unique identifier for the user’s account.\n\nPassword – The secret key chosen by the user for account access.\nSession Token / Cookie – Created after successful login to keep the user authenticated without re-entering credentials.\n\nMulti-Factor Authentication (MFA) Code (if implemented) – A one-time passcode sent to email/SMS or generated by an authenticator app.",
+              "description": "The request data sent by a user to the system when logging to the system.\n\nlogin data contains:\n* Username / Email – The unique identifier for the user’s account.\n* Password – The secret key chosen by the user for account access.\nSession Token / Cookie – Created after successful login to keep the user authenticated without re-entering credentials.\n* Multi-Factor Authentication (MFA) Code (if implemented) – A one-time passcode sent to email/SMS or generated by an authenticator app.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1822,7 +1791,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "end-user personal\ndetails",
-              "description": "Identity Information\nFull name\nUsername / display name\nProfile picture\nContact Information\nEmail address\nPhone number (if required for MFA or notifications)",
+              "description": "The data sent by the user database to the system when the system is trying to verify an end-user's personal data.\nIdentity Information\nFull name\nUsername / display name\nProfile picture\nContact Information\nEmail address\nPhone number (if required for MFA or notifications)",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1864,17 +1833,7 @@
               "cell": "b1556f56-9688-492a-bbc5-f38c4c83e415",
               "port": "91903c17-f095-4151-9442-5fd8fb391443"
             },
-            "vertices": [],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            "vertices": []
           },
           {
             "shape": "flow",
@@ -1898,7 +1857,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "personal details data",
-              "description": "User details include:\n  * full name\n  * address\n  * mobile phone number\n  * email address\n  * password",
+              "description": "The request data sent by a user to the system when registering.\nPersonal details data contains:\n  * full name\n  * address\n  * mobile phone number\n  * email address\n  * password",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1996,7 +1955,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "end-user personal data",
-              "description": "Identity Information\nFull name\nUsername / display name\nProfile picture\nContact Information\nEmail address\nPhone number (if required for MFA or notifications)",
+              "description": "The data sent by the system to the user database when the system is trying to store an end-user's personal data.\nend-user personal data contains:\n* Identity Information, this includes:\nFull name\nUsername / display name\nProfile picture\nContact Information\nEmail address\nPhone number (if required for MFA or notifications)",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -2373,7 +2332,7 @@
             "data": {
               "type": "tm.Store",
               "name": "Content Datastore",
-              "description": "Content store\ntext:String\nimages:List<lmage>\nlinks:List<Link>\nreferencedNotes:List<Note>",
+              "description": "This database contains all note content data.\nevery entry contains:\n* text: String\n* images: List<lmage>\n* links: List<Link>\n* referencedNotes:List<Note>",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -2519,7 +2478,7 @@
             "data": {
               "type": "tm.Store",
               "name": "Comment Datastore",
-              "description": "commentld: String\ncontent: Text\ncreatedAt: DateTime\nauthor:User",
+              "description": "This database contains all comment data.\nevery entry contains:\n* commentld: String\n* content: Text\n* createdAt: DateTime\n* author:User",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -3059,8 +3018,8 @@
           },
           {
             "position": {
-              "x": 1180,
-              "y": 335
+              "x": 1145,
+              "y": 350
             },
             "size": {
               "width": 140,
@@ -3170,7 +3129,7 @@
             "data": {
               "type": "tm.Store",
               "name": "SharedNote Datastore",
-              "description": "sharedNoteld: String\nnote: Note\npublic:Boolean\nsharedWith:List<User>\naccessLevel:Enum {Read, Write}",
+              "description": "This database contains all note sharing information data.\nevery entry contains:\n* sharedNoteld: String\n* note: Note\n* public: Boolean\n* sharedWith: List<User>\naccessLevel:Enum {Read, Write}",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -3937,6 +3896,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 23,
             "ports": {
               "groups": {
                 "top": {
@@ -4020,7 +3980,6 @@
               ]
             },
             "id": "4edad714-ae72-4127-b8d1-54d765a1d367",
-            "zIndex": 23,
             "data": {
               "type": "tm.Process",
               "name": "Login",
@@ -4110,6 +4069,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 24,
             "ports": {
               "groups": {
                 "top": {
@@ -4193,11 +4153,10 @@
               ]
             },
             "id": "b1556f56-9688-492a-bbc5-f38c4c83e415",
-            "zIndex": 24,
             "data": {
               "type": "tm.Store",
               "name": "User Datastore",
-              "description": "This database contains all user data",
+              "description": "This database contains all user data.\nevery entry contains:\n* userId: String\n* username: String\n* email: String",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -4251,6 +4210,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 25,
             "ports": {
               "groups": {
                 "top": {
@@ -4334,7 +4294,6 @@
               ]
             },
             "id": "4cb9ca11-a975-48c9-8cb3-90069ad09959",
-            "zIndex": 25,
             "data": {
               "type": "tm.Process",
               "name": "Register",
